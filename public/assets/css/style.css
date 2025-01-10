@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css');
+@import url('./common-style.css');
+@import url('./authentication.css');
+@import url('./variables.css');
+@import url('./header.css');
+@import url('./sidebar.css');
+@import url('./loader.css');
+
+body {
+    font-family: "Montserrat", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    list-style: none;
+    text-decoration: none;
+    border: none;
+    box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul,
+li,
+a {
+    text-decoration: none;
+    list-style: none;
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1270px;
+    margin: 0 auto;
+    padding: 0 12px;
+}
+
+/* Css for form */
+
+.form-label {
+    font-weight: 500;
+    font-size: 14px;
+    margin-bottom: 2px;
+    color: var(--black-color)
+}
+
+.input-fields {
+    position: relative;
+}
+
+.form-control {
+    border-radius: 5px;
+    font-size: 14px;
+    padding: 8px 12px;
+    appearance: auto;
+    -moz-appearance: auto;
+    min-height: 40px;
+    max-height: 40px;
+}
+
+.form-control.read-only {
+    pointer-events: none;
+    opacity: 0.7;
+    background-color: #f0f0f0;
+    cursor: none;
+}
+
+.form-fields textarea {
+    min-height: 100px;
+    max-height: 100px;
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: var(--theme-color);
+}
+
+
+/* End */

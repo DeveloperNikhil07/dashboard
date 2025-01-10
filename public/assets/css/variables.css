@@ -1,0 +1,16 @@
+:root {
+    --theme-color: #0b1437;
+    --black-color: #000;
+    --white-color: #fff;
+    --secondary-theme-color: #103e65;
+    --gray-color: #ccc;
+    --secondary-primary: #333;
+    --transition: all 0.3s ease;
+    --bg-gray: rgb(243 244 246);
+    --green-color: rgb(63, 217, 127);
+    --failed-color: #fa113d;
+    --loss-color: #ba5c5b;
+    --profit-color: #76bd68;
+    --light-gray-color: #c3c3c3;
+    --blue-color: blue;
+}

@@ -1,0 +1,55 @@
+
+.section-title h2,
+.section-title h1 {
+    font-size: clamp(24px, 2.5vw, 28px);
+    font-weight: 700;
+    line-height: normal;
+    color: var(--black-color);
+    position: relative;
+}
+
+.cm-button {
+    width: 100%;
+    background-color: var(--theme-color);
+    border: none;
+    color: var(--white-color);
+    font-weight: 500;
+    padding: 8px 20px;
+    font-size: clamp(11px, 1.5vw, 15px);
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    margin-top: 25px;
+    display: inline-block;
+    text-align: center;
+}
+
+body .cm-button:hover,
+.cm-button:focus,
+.cm-button:active {
+    background-color: var(--black-color) !important;
+    color: var(--white-color) !important
+}
+
+.pt {
+    padding-top: 40px;
+}
+
+.pb {
+    padding-bottom: 40px;
+}
+
+.py {
+    padding: 40px 0px;
+}
+
+.mt {
+    margin-top: 40px;
+}
+
+.mb {
+    margin-bottom: 40px;
+}
+
+.my {
+    margin: 40px 0px;
+}

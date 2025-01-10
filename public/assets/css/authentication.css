@@ -1,0 +1,141 @@
+.login-form-wrapper {
+    width: 100%;
+    overflow-y: auto;
+    background: url('../images/banner.jpg');
+    height: 100vh;
+    background-size: cover;
+    position: relative;
+    background-position: right;
+}
+
+.login-form-wrapper::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    height: 100%;
+    width: 100%;
+}
+
+.login-wrapper {
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    position: relative;
+    z-index: 1;
+}
+
+.login-wrapper .login-card {
+    width: 100%;
+    max-width: 400px;
+    padding: 2rem;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: var(--white-color);
+}
+
+.login-wrapper .login-btn {
+    width: 100%;
+}
+
+.login-wrapper .form-label {
+    font-weight: 500;
+    font-size: 13px;
+    margin-bottom: 2px;
+    color: var(--secondary-primary)
+}
+
+.login-wrapper .input-fields {
+    position: relative;
+}
+
+.login-wrapper .form-control {
+    border-radius: 5px;
+    font-size: 13px;
+    padding: 8px 12px;
+    appearance: auto;
+    -moz-appearance: auto;
+    min-height: 40px;
+    max-height: 40px;
+    border: none;
+    border-bottom: 1px solid var(--light-gray-color);
+}
+
+.login-wrapper .form-control.read-only {
+    pointer-events: none;
+    opacity: 0.7;
+    background-color: #f0f0f0;
+    cursor: none;
+}
+
+.login-wrapper .form-fields textarea {
+    min-height: 100px;
+    max-height: 100px;
+}
+
+.login-wrapper .form-fields .react-datepicker-popper {
+    z-index: 99;
+}
+
+.login-wrapper .form-error {
+    width: 100%;
+    margin-top: .25rem;
+    font-size: 12px;
+    color: #dc3545;
+}
+
+.login-wrapper .form-control:focus {
+    box-shadow: none;
+    border-color: var(--theme-color);
+}
+
+.login-wrapper .login-card>a {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 20px
+}
+
+.login-wrapper .login-card>a img {
+    width: 160px;
+    height: auto
+}
+
+.login-wrapper .login-card h2 {
+    font-weight: 600;
+    color: var(--theme-color)
+}
+
+.login-wrapper .login-card a {
+    color: var(--secondary-primary)
+}
+
+.login-wrapper .form-wrapper .input-fields i {
+    position: absolute;
+    right: 12px;
+    top: 70%;
+    transform: translateY(-50%);
+    color: var(--secondary-primary);
+}
+
+.login-wrapper .form-wrapper .input-fields i.eye {
+    cursor: pointer;
+}
+
+.login-wrapper .remember-text button {
+    color: var(--secondary-primary);
+    font-size: 13px;
+    background-color: transparent;
+}
+
+.login-wrapper .signup-acc p {
+    font-size: 13px;
+    color: var(--secondary-primary);
+}
+
+.login-wrapper .signup-acc p>button {
+    color: var(--blue-color);
+    background-color: transparent;
+    font-weight: 600;
+}
