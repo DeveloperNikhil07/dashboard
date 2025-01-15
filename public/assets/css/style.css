@@ -6,6 +6,7 @@
 @import url('./header.css');
 @import url('./sidebar.css');
 @import url('./loader.css');
+@import url('./greetPopup.css');
 
 body {
     font-family: "Montserrat", sans-serif;

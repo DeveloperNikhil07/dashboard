@@ -79,7 +79,7 @@ export default function Login({ setUserAuthentication }) {
                   <i className="fa-solid fa-right-from-bracket"></i>
                 </div>
                 <h2 className='text-center mb-2 fs-4 xl-line'>Welcome!</h2>
-                <p className='text-center mb-4 fw-medium'>Sign in to your account</p>
+                <p className='text-center mb-4 fw-medium'>Log in to your account</p>
                 <form className="form-wrapper position-relative" onSubmit={handleLoginSubmit}>
                   <div className="input-fields">
                     <label htmlFor="email" className="form-label">Email*</label>

@@ -1,8 +1,13 @@
 "use client";
 import axios from 'axios';
-import { useState } from 'react';
+import { use, useState } from 'react';
+import SuccessGreetPopup from '../component/SuccessGreetPopup'
+
+
 export default function SignUp({ setUserAuthentication }) {
-    const [showPassword, setShowPassword] = useState(false);
+    const [successPopup, setSuccessPopup] = useState(false)
+    const [userAlreadyExcited, setUserAlreadyExcited] = useState(false)
+    const [showPassword, setShowPassword] = useState(true);
     const [error, setError] = useState({
         fullname: '',
         email: '',
@@ -89,13 +94,24 @@ export default function SignUp({ setUserAuthentication }) {
         }
 
         try {
-            const response = await axios.post('/api/userSignup', signUpUserData)
-            console.log(response)
+            const response = await axios.post("/api/userSignup", signUpUserData);
+            console.log(response);
+            if (response.status === 200) {
+                setSuccessPopup(true);
+            }
         } catch (err) {
-            console.log(err);
+            // console.log(err);
+            // alert("Signup failed. Please try again.");
+            setUserAlreadyExcited(true)
         }
     };
 
+    // Greet popup close 
+    const popupClose = () => {
+        setSuccessPopup(false);
+        setUserAlreadyExcited(false)
+        window.location.reload();
+    }
     return (
         <section className="login-form-wrapper">
             <div className="container">
@@ -162,12 +178,27 @@ export default function SignUp({ setUserAuthentication }) {
 
                                 <button type="submit" className="btn login-btn cm-button" id="signup">Sign Up</button>
                             </form>
-
                             <div className="input-fields signup-acc remember-text mt-3 text-center">
                                 <p>You already have an account? <button onClick={() => setUserAuthentication("userlogin")}>Login</button></p>
                             </div>
                         </div>
                     </div>
+                    {userAlreadyExcited && (
+                        <SuccessGreetPopup
+                            popupClose={popupClose}
+                            IconImage="/assets/images/confused.png"
+                            Greetheading="Failed"
+                            GreetDesc="User already exists. Please login.!"
+                        />
+                    )}
+                    {successPopup && (
+                        <SuccessGreetPopup
+                            popupClose={popupClose}
+                            IconImage="/assets/images/check.png"
+                            Greetheading="Success"
+                            GreetDesc="Your Account has been successfully created!"
+                        />
+                    )}
                 </div>
             </div>
         </section>

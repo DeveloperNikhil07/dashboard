@@ -44,7 +44,7 @@ export async function POST(request) {
         // Success response
         return NextResponse.json(
             { message: "User created successfully", user: newUser },
-            { status: 201 }
+            { status: 200 }
         );
     } catch (err) {
         console.error("Error during user signup:", err);
