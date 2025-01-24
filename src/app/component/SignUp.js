@@ -1,6 +1,6 @@
 "use client";
 import axios from 'axios';
-import { use, useState } from 'react';
+import { useState } from 'react';
 import SuccessGreetPopup from '../component/SuccessGreetPopup'
 
 
@@ -100,8 +100,7 @@ export default function SignUp({ setUserAuthentication }) {
                 setSuccessPopup(true);
             }
         } catch (err) {
-            // console.log(err);
-            // alert("Signup failed. Please try again.");
+            console.log(err);
             setUserAlreadyExcited(true)
         }
     };

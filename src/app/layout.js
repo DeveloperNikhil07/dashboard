@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import "../../public/assets/css/style.css";
 import "../../public/assets/css/responsive.css";
 import { usePathname } from 'next/navigation';
-import { useEffect, ReactNode } from 'react';
+import { useEffect, } from 'react';
 
 import Header from "./component/Header";
 import AsideBar from "./component/AsideBar";
