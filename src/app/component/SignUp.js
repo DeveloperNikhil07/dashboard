@@ -1,12 +1,11 @@
 "use client";
-import axios from 'axios';
 import { useState } from 'react';
 import SuccessGreetPopup from '../component/SuccessGreetPopup'
-
+import { UserSignUp } from '../api/UserLoginAuthenticationApi/route'
 
 export default function SignUp({ setUserAuthentication }) {
-    const [successPopup, setSuccessPopup] = useState(false)
-    const [userAlreadyExcited, setUserAlreadyExcited] = useState(false)
+    const [successPopup, setSuccessPopup] = useState(false);
+    const [userAlreadyExists, setUserAlreadyExists] = useState(false);
     const [showPassword, setShowPassword] = useState(true);
     const [error, setError] = useState({
         fullname: '',
@@ -94,23 +93,24 @@ export default function SignUp({ setUserAuthentication }) {
         }
 
         try {
-            const response = await axios.post("/api/userSignup", signUpUserData);
+            const response = await UserSignUp(signUpUserData);
             console.log(response);
-            if (response.status === 200) {
+            if (response.status === 200 || response.message === 'User created successfully') {
                 setSuccessPopup(true);
             }
         } catch (err) {
             console.log(err);
-            setUserAlreadyExcited(true)
+            setUserAlreadyExists(true);
         }
     };
 
     // Greet popup close 
     const popupClose = () => {
         setSuccessPopup(false);
-        setUserAlreadyExcited(false)
+        setUserAlreadyExists(false);
         window.location.reload();
     }
+
     return (
         <section className="login-form-wrapper">
             <div className="container">
@@ -182,12 +182,12 @@ export default function SignUp({ setUserAuthentication }) {
                             </div>
                         </div>
                     </div>
-                    {userAlreadyExcited && (
+                    {userAlreadyExists && (
                         <SuccessGreetPopup
                             popupClose={popupClose}
                             IconImage="/assets/images/confused.png"
                             Greetheading="Failed"
-                            GreetDesc="User already exists. Please login.!"
+                            GreetDesc="User already exists. Please login!"
                         />
                     )}
                     {successPopup && (
