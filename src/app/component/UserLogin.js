@@ -1,11 +1,15 @@
 "use client";
 import { useState } from 'react';
-
+import { LoginUser } from '../api/UserLoginAuthenticationApi/route'
+import SuccessGreetPopup from './SuccessGreetPopup';
+import { useRouter } from 'next/navigation';
 export default function Login({ setUserAuthentication }) {
+  const router = useRouter();
   const [error, setError] = useState({
     email: '',
     password: ''
   });
+  const [LoginSuccess, setLoginSuccess] = useState(false)
   const [showPassword, setShowPassword] = useState(false);
   const [loginUserData, setLoginUserData] = useState({
     email: '',
@@ -22,7 +26,7 @@ export default function Login({ setUserAuthentication }) {
       ...prevData,
       [name]: value
     }));
-    
+
     // Real-time validation
     if (name === 'email') {
       const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -40,13 +44,12 @@ export default function Login({ setUserAuthentication }) {
         password: passwordValid ? '' : 'Password must be 8+ characters, with letters and numbers.'
       }));
     }
-    
+
   };
 
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
     setError({ email: '', password: '' });
-
     const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     if (!emailRegex.test(loginUserData.email)) {
       setError((prevError) => ({
@@ -64,9 +67,28 @@ export default function Login({ setUserAuthentication }) {
       }));
       return;
     }
-
-    alert('Form submitted successfully');
+    // Login Api
+    try {
+      const response = await LoginUser(loginUserData);
+      console.log(response);
+      if (response.status === 200 || response.message === "Login successful") {
+        setLoginSuccess(true);
+        setTimeout(() => {
+          router.push('/dashboard')
+        }, 2000);
+      }
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setTimeout(() => {
+        setLoginSuccess(false);
+      }, 2000);
+    }
   };
+  const popupClose = () => {
+    setLoginSuccess(false);
+    router.push('/dashboard')
+  }
 
   return (
     <>
@@ -130,6 +152,16 @@ export default function Login({ setUserAuthentication }) {
                 <div className="signup-acc mt-3 text-center">
                   <p>Don't have an account? <button type="button" onClick={() => setUserAuthentication("userSignup")}>Create an account</button></p>
                 </div>
+
+                {/* Success Greet Messgae */}
+                {LoginSuccess && (
+                  <SuccessGreetPopup
+                    popupClose={popupClose}
+                    IconImage="/assets/images/check.png"
+                    Greetheading="Success"
+                    GreetDesc="Welcome Back!"
+                  />
+                )}
               </div>
             </div>
           </div>

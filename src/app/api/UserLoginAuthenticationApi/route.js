@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-// const UserLoginUrl = process.env.UserSignUp;
 const UserLoginUrl = 'http://localhost:3001/api';
+
 
 // User New signup api 
 export const UserSignUp = async (userInfo) => {
@@ -16,6 +16,24 @@ export const UserSignUp = async (userInfo) => {
         )
         return response.data
     } catch (error) {
-
+        console.log(error)
     }
 }
+
+// User login api
+export const LoginUser = async (LoginData) => {
+    try {
+        const response = await axios.post(`${UserLoginUrl}/login`,
+            LoginData,
+            {
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                withCredentials: true, // Include credentials (cookies)
+            }
+        );
+        return response.data;
+    } catch (error) {
+        // Keeping the catch block as is (no additional logic)
+    }
+};

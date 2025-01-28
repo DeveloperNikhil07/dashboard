@@ -10,7 +10,7 @@ export default function SuccessGreetPopup({ popupClose, IconImage, Greetheading,
                         <Image src={IconImage || ""} height={50} width={50} alt={IconImage} />
                     </div>
                     <div className="content-body">
-                        <h2 className='fs-3 pb-2 fw-semibold'>{Greetheading}</h2>
+                        <h2 className='fs-4 pb-2 fw-semibold'>{Greetheading}</h2>
                         <p>{GreetDesc}</p>
                     </div>
                     <button onClick={popupClose} type='button' className='cm-button'>Ok</button>
