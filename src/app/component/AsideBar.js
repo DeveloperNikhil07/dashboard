@@ -1,9 +1,14 @@
 import React from 'react'
-
+import Image from 'next/image';
+import Link from 'next/link'
 export default function AsideBar() {
   return (
-    <div>
-      
-    </div>
+    <>
+      <aside className='asidebar-nav'>
+        <div className="asidebar-logo">
+          {/* <Link href="/">Logo</Link> */}
+        </div>
+      </aside>
+    </>
   )
 }

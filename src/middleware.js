@@ -1,29 +1,28 @@
-import { NextResponse, NextRequest } from 'next/server'
+import { NextResponse } from "next/server";
 
-export function middleware(request) {
-    console.log("middleware running...");
+export function middleware(req) {
+  const isAuthenticated = req.cookies.get("sessionId")?.value; // Check for sessionId
 
-    const AuthLogToken = request.cookies.get("loginAuthToken")?.value;
-    const loggedInUserNotAccessPath = request.nextUrl.pathname === "/login" || request.nextUrl.pathname === "/usersignup";
+  console.log("Middleware - isAuthenticated:", isAuthenticated);
 
-    if (loggedInUserNotAccessPath) {
-        if (AuthLogToken) {
-            // Redirect logged-in users from /login or /usersignup to /dashboard
-            return NextResponse.redirect(new URL("/dashboard", request.url));
-        } else {
-            // Redirect unauthenticated users to /login
-            return NextResponse.redirect(new URL("/login", request.url));
-        }
-    }
+  const { pathname } = req.nextUrl;
 
-    console.log(AuthLogToken); // For debugging purposes
+  // If user is NOT authenticated and trying to access a protected route
+  if (!isAuthenticated && pathname !== "/login") {
+    console.log("Redirecting to /login");
+    return NextResponse.redirect(new URL("/login", req.url));
+  }
+
+  // If user is authenticated and tries to access login page, redirect to dashboard
+  if (isAuthenticated && pathname === "/login") {
+    console.log("Redirecting to /dashboard");
+    return NextResponse.redirect(new URL("/dashboard", req.url));
+  }
+
+  return NextResponse.next(); // Continue to requested page
 }
 
-// Matcher to limit the middleware to specific paths
+// Protect all pages except Next.js internal assets
 export const config = {
-    matcher: [
-        "/dashboard",
-        "/login",
-        "/usersignup",
-    ],
-}
+  matcher: ["/((?!_next|static|favicon.ico).*)"],
+};
