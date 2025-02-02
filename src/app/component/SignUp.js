@@ -2,8 +2,9 @@
 import { useState } from 'react';
 import SuccessGreetPopup from '../component/SuccessGreetPopup'
 import { UserSignUp } from '../api/UserLoginAuthenticationApi/route'
-
+import { usePathname } from 'next/navigation';
 export default function SignUp({ setUserAuthentication }) {
+    const pathname = usePathname()
     const [successPopup, setSuccessPopup] = useState(false);
     const [userAlreadyExists, setUserAlreadyExists] = useState(false);
     const [showPassword, setShowPassword] = useState(true);
@@ -111,6 +112,9 @@ export default function SignUp({ setUserAuthentication }) {
         window.location.reload();
     }
 
+    const NotShowLoginText = ['/usersignup']
+    const HideLoginText = NotShowLoginText.includes(pathname)
+
     return (
         <section className="login-form-wrapper">
             <div className="container">
@@ -178,7 +182,7 @@ export default function SignUp({ setUserAuthentication }) {
                                 <button type="submit" className="btn login-btn cm-button" id="signup">Sign Up</button>
                             </form>
                             <div className="input-fields signup-acc remember-text mt-3 text-center">
-                                <p>You already have an account? <button onClick={() => setUserAuthentication("userlogin")}>Login</button></p>
+                                {!HideLoginText && <p>You already have an account? <button onClick={() => setUserAuthentication("userlogin")}>Login</button></p>}
                             </div>
                         </div>
                     </div>

@@ -1,7 +1,10 @@
 "use client";
 import { useState } from 'react';
+import { usePathname } from 'next/navigation';
 
 export default function ForgetPassword({ setUserAuthentication }) {
+  const pathname = usePathname();
+
   const [ViewNewPassword, setViewNewPassword] = useState(false);
   const toggleNewPassPasswordVisibility = () => {
     setViewNewPassword(!ViewNewPassword);
@@ -90,10 +93,12 @@ export default function ForgetPassword({ setUserAuthentication }) {
       return;
     }
 
-    // If all validations pass
     alert('Password reset successfully');
     // You can add your password reset logic here
   };
+
+  const noShowLoginText = ['/forgetpassword'];
+  const hideLoginText = noShowLoginText.includes(pathname);
 
   return (
     <>
@@ -167,7 +172,7 @@ export default function ForgetPassword({ setUserAuthentication }) {
                 </form>
 
                 <div className="input-fields signup-acc remember-text mt-3 text-center">
-                  <p>Please go back and log in again <button onClick={() => setUserAuthentication("userLogin")}>Login</button></p>
+                  {!hideLoginText && <p>Please go back and log in again <button onClick={() => setUserAuthentication("userLogin")}>Login</button></p>}
                 </div>
               </div>
             </div>

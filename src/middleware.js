@@ -6,7 +6,6 @@ export function middleware(req) {
   console.log("Middleware - isAuthenticated:", isAuthenticated);
 
   const { pathname } = req.nextUrl;
-
   // If user is NOT authenticated and trying to access a protected route
   if (!isAuthenticated && pathname !== "/login") {
     console.log("Redirecting to /login");
