@@ -1,0 +1,25 @@
+@media screen and (max-width:767px) {
+    .home-asidebar.show-asidebar .asidebar-wrapp {
+        left: 0px;
+    }
+
+    .home-asidebar .asidebar-wrapp {
+        position: fixed;
+        left: -100%;
+        z-index: 11;
+    }
+}
+
+@media screen and (max-width:539px) {
+    .header-profile .header-alert-item>ul {
+        gap: 12px;
+    }
+
+    .user-profile {
+        margin-left: 12px;
+    }
+
+    .header-item {
+        padding: 15px;
+    }
+}

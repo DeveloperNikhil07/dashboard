@@ -1,0 +1,124 @@
+.header-wrapper {
+    width: 100%;
+    background-color: var(--sky-blue);
+}
+
+.header-item {
+    padding: 16px 24px;
+}
+
+.header-search-bar i {
+    color: var(--light-white-color);
+    cursor: pointer;
+}
+
+.header-search-bar input.search-bar {
+    border: none;
+    background-color: transparent;
+    padding-left: 10px;
+    color: var(--light-white-color);
+}
+
+.header-search-bar input.search-bar::placeholder {
+    color: var(--light-white-color);
+}
+
+.header-profile .header-alert-item>ul {
+    gap: 16px;
+}
+
+.header-profile .header-alert-item>ul>li {
+    min-height: 33px;
+    max-height: 33px;
+    min-width: 33px;
+    max-width: 33px;
+    border-radius: 50px;
+    text-align: center;
+    line-height: 33px;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.user-profile {
+    margin-left: 24px;
+    cursor: pointer;
+    position: relative;
+}
+
+.user-title>.username h6 {
+    color: var(--light-white-color);
+    font-size: clamp(12px, 1.3vw, 14px);
+    font-weight: 600;
+    line-height: normal;
+}
+
+.user-title>.username p {
+    color: var(--gray-color);
+    font-size: 12px;
+    text-align: right;
+}
+
+.user-title>i {
+    color: var(--light-white-color);
+}
+
+.user-profile-card {
+    position: absolute;
+    right: 0;
+    top: 64px;
+    background-color: var(--sky-blue);
+    min-width: 248px;
+    max-width: 248px;
+    border: 1px solid rgb(46 58 71);
+}
+
+.user-profile-card>ul {
+    padding: 24px;
+}
+
+.user-profile-card>ul>li {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding-bottom: 16px;
+}
+
+.user-profile-card>ul>li:last-child {
+    padding-bottom: 0;
+}
+
+.user-profile-card>ul>li>a {
+    color: var(--light-white-color);
+    font-size: clamp(12px, 1.2vw, 14px);
+}
+
+.user-profile-card>ul>li>a:hover {
+    color: var(--white-color);
+}
+
+.logout-btn {
+    gap: 16px;
+    padding: 16px 24px;
+    border-top: 1px solid rgb(46 58 71);
+}
+
+.logout-btn>a {
+    color: var(--light-white-color);
+}
+
+.logout-btn>a:hover {
+    color: var(--white-color);
+}
+
+.toggle-btn {
+    border: 1px solid rgb(46 58 71);
+    border-radius: 2px;
+    opacity: 0.8;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.toggle-btn:active,
+.toggle-btn:hover {
+    opacity: 1;
+}

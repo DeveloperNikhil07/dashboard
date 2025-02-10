@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { login } from "../../../pages/api/route";
 import SuccessGreetPopup from "./SuccessGreetPopup";
 import { useRouter } from "next/navigation";
@@ -44,12 +44,12 @@ export default function Login({ setUserAuthentication }) {
       const response = await login(loginUserData.email, loginUserData.password);
       console.log(response)
       if (response?.isLoginSuccess) {
-        const expiresInMinutes = 5;
+        const expiresInMinutes = 1;
         Cookies.set("sessionId", response.data.token, { expires: expiresInMinutes / 1440 });
         Cookies.set("LoginUser", JSON.stringify(response.data?.user), { expires: expiresInMinutes / 1440 });
         router.push("/dashboard");
         setTimeout(() => {
-          window.location.reload();
+          router.push("/login");
         }, expiresInMinutes * 60 * 1000);
 
       } else {

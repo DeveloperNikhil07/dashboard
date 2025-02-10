@@ -6,6 +6,7 @@ export function middleware(req) {
   console.log("Middleware - isAuthenticated:", isAuthenticated);
 
   const { pathname } = req.nextUrl;
+
   // If user is NOT authenticated and trying to access a protected route
   if (!isAuthenticated && pathname !== "/login") {
     console.log("Redirecting to /login");
@@ -17,7 +18,6 @@ export function middleware(req) {
     console.log("Redirecting to /dashboard");
     return NextResponse.redirect(new URL("/dashboard", req.url));
   }
-
   return NextResponse.next(); // Continue to requested page
 }
 

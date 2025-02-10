@@ -2,18 +2,23 @@
 import React from 'react'
 import Image from 'next/image';
 import Link from 'next/link'
-import { useEffect, useState } from 'react';
-export default function AsideBar() {
-  const [activeIndex, setActiveIndex] = useState(null);
+import { useState } from 'react';
 
+export default function AsideBar({ AsidebarToggleHandle }) {
+  const [activeIndex, setActiveIndex] = useState(null);
   const toggleSubMenu = (index) => {
     setActiveIndex(activeIndex === index ? null : index); // Toggle the submenu for the clicked item
   };
+
+
   return (
     <>
       <aside className='asidebar-wrapp'>
-        <div className="asidebar-logo">
+        <div className="asidebar-logo d-flex align-items-center justify-content-between">
           <Link href="/">Logo</Link>
+          <div className='close-toggle-btn d-block d-md-none' onClick={AsidebarToggleHandle}>
+            <Image src="/assets/images/logout.png" alt="Icon" priority height={24} width={24} />
+          </div>
         </div>
         <nav className="asidebar-nav">
           <div className='menu-title'><h6>MENU</h6></div>
@@ -62,7 +67,7 @@ export default function AsideBar() {
               {activeIndex === 3 && (
                 <span className='submenu'>
                   <ul className='submenu-item'>
-                    <li><Link href="#">Log In</Link></li>
+                    <li><Link href="/login">Log In</Link></li>
                     <li><Link href="/usersignup">Sign Up</Link></li>
                     <li><Link href="/forgetpassword">Forget Password</Link></li>
                   </ul>

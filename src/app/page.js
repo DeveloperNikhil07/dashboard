@@ -1,9 +1,9 @@
-import DashboardPage from "./dashboard/page"
+import Login from "./component/UserLogin"
 export default function AuthenticationController() {
 
   return (
     <>
-      <DashboardPage/>
+      <Login/>
     </>
   )
 }

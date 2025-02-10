@@ -12,6 +12,7 @@ body {
     font-family: "Montserrat", sans-serif;
     margin: 0;
     padding: 0;
+    background-color: #1a222c;
 }
 
 * {
@@ -88,5 +89,15 @@ a {
     border-color: var(--theme-color);
 }
 
-
 /* End */
+
+/* Child render css */
+.home-controller.home-control-panel .child-render{
+    height:inherit;
+    padding:0px;
+}
+.child-render{
+    height:calc(100vh - 80px);
+    padding:20px
+}
+/* end */
