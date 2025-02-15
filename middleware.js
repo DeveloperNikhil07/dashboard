@@ -23,5 +23,8 @@ export function middleware(req) {
 
 // Protect all pages except Next.js internal assets
 export const config = {
-  matcher: ["/((?!_next|static|favicon.ico).*)"],
+  matcher: [
+    "/((?!_next|static|favicon.ico|images|assets).*)",
+  ],
 };
+

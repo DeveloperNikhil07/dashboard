@@ -1,12 +1,28 @@
+@media screen and (max-width:991px) {
+    .doughnout-card canvas {
+        height: 350px !important;
+        width: 350px !important;
+    }
+}
 @media screen and (max-width:767px) {
     .home-asidebar.show-asidebar .asidebar-wrapp {
         left: 0px;
+        height: 100%;
+    }
+
+    .child-render {
+        padding: 18px 4px;
     }
 
     .home-asidebar .asidebar-wrapp {
         position: fixed;
         left: -100%;
         z-index: 11;
+    }
+
+    .doughnout-card canvas {
+        height: 250px !important;
+        width: 250px !important;
     }
 }
 

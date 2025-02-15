@@ -89,15 +89,71 @@ a {
     border-color: var(--theme-color);
 }
 
+i {
+    color: var(--white-color);
+    font-size: 18px;
+}
+
 /* End */
 
-/* Child render css */
-.home-controller.home-control-panel .child-render{
-    height:inherit;
-    padding:0px;
+/* Dashboard cards */
+.dashboard-card .card-box {
+    border: 1px solid var(--border-color);
+    padding: 25px;
+    border-radius: 8px;
+    background-color: var(--dashboard-card-light-bg);
 }
-.child-render{
-    height:calc(100vh - 80px);
-    padding:20px
+
+.dashboard-card .card-box .card-header .card-icon {
+    height: 48px;
+    width: 48px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--card-icon);
 }
-/* end */
+
+.dashboard-card .card-box .card-body .card-subtitle p {
+    color: var(--gray-color);
+    font-size: clamp(13px, 1vw, 16px);
+    font-weight: 400;
+    margin-top: 20px;
+    line-height: normal;
+}
+
+.dashboard-card .card-box .card-body .card-subtitle h3 {
+    font-weight: 600;
+    color: var(--white-color);
+    margin-top: 10px;
+    font-size: clamp(22px, 2.5vw, 30px);
+    line-height: normal;
+}
+
+.dashboard-card .card-box .card-body .card-subtitle span.card-badge.online,
+.dashboard-card .card-box .card-body .card-subtitle span.card-badge.offline {
+    padding: 2px 10px;
+    font-size: clamp(12px, 1vw, 14px);
+    color: var(--green-color);
+    background-color: var(--light-success-bg);
+    border-radius: 20px;
+}
+
+.dashboard-card .card-box .card-body .card-subtitle span.card-badge.offline {
+    background-color: var(--offline-bg-color);
+    color: var(--gray-color);
+}
+
+/* Doughnout chart */
+
+.doughnoutChart-wrapper .doughnout-card{
+    border: 1px solid var(--border-color);
+    padding: 25px;
+    border-radius: 8px;
+    background-color: var(--dashboard-card-light-bg);   
+    height: 100%;
+}
+.doughnout-card canvas {
+    height: 480px !important;
+    width: 480px !important;
+}

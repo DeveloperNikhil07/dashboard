@@ -14,5 +14,10 @@
     --light-gray-color: #c3c3c3;
     --blue-color: blue;
     --sky-blue: rgb(36 48 63);
-    --light-white-color: #dee4ee
+    --light-white-color: #dee4ee;
+    --border-color: #2e3a47;
+    --dashboard-card-light-bg: #24303f;
+    --card-icon: #1d2939;
+    --light-success-bg: rgb(18 183 106 / 15%);
+    --offline-bg-color: #e2e2e226;
 }

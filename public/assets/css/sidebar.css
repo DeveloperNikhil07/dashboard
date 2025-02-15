@@ -2,8 +2,8 @@
     background-color: var(--sky-blue);
     max-width: 290px;
     min-width: 290px;
-    height: 100vh;
     border-right: 1px solid rgb(46 58 71);
+    height: auto;
 }
 
 .asidebar-logo {

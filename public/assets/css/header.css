@@ -122,3 +122,17 @@
 .toggle-btn:hover {
     opacity: 1;
 }
+.user-profile-img{
+    position: relative;
+}
+.user-profile-img .show-status:after {
+    border: 1px solid var(--white-color);
+    content: "";
+    position: absolute;
+    right: 0px;
+    bottom: 1px;
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    background-color: var(--green-color);
+}

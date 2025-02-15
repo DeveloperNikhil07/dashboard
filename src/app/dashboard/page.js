@@ -1,4 +1,6 @@
 import React from 'react'
+import DashboardCards from '../component/DashboardCards'
+import DoughnutChart from '../component/DoughnutChart'
 
 export default function DashboardPage() {
   return (
@@ -6,7 +8,8 @@ export default function DashboardPage() {
       <section className="dashboard-wrapper">
         <div className="container-fluid">
           <div className="row">
-            <h1>Dashboard page</h1>
+            <DashboardCards />
+            <DoughnutChart/>
           </div>
         </div>
       </section>

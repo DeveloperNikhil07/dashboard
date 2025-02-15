@@ -2,8 +2,9 @@
 import { useState } from 'react';
 import SuccessGreetPopup from '../component/SuccessGreetPopup'
 import { UserSignUp } from '../api/UserLoginAuthenticationApi/route'
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 export default function SignUp({ setUserAuthentication }) {
+    const router = useRouter();
     const pathname = usePathname()
     const [successPopup, setSuccessPopup] = useState(false);
     const [userAlreadyExists, setUserAlreadyExists] = useState(false);
@@ -109,7 +110,7 @@ export default function SignUp({ setUserAuthentication }) {
     const popupClose = () => {
         setSuccessPopup(false);
         setUserAlreadyExists(false);
-        window.location.reload();
+        router.refresh()
     }
 
     const NotShowLoginText = ['/usersignup']

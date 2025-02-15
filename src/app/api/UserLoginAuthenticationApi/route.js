@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const UserLoginUrl = 'http://localhost:3001/api';
-
+// const UserAuthApi = process.env.LOGIN_AUTH_API+'/api'
 
 // User New signup api 
 export const UserSignUp = async (userInfo) => {

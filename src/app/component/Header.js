@@ -44,6 +44,7 @@ export default function Header({ AsidebarToggleHandle }) {
                   </div>
                   <div className="user-profile-img">
                     <Image src="/assets/images/user.webp" alt='User Profile' height={48} width={48} priority />
+                    <div className="show-status"></div>
                   </div>
                   <i className={`fa ${ShowUserProfileCard ? "fa-angle-up" : "fa-angle-down"}`}></i>
                 </div>

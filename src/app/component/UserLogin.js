@@ -6,13 +6,14 @@ import { useRouter } from "next/navigation";
 import Cookies from "js-cookie";
 
 export default function Login({ setUserAuthentication }) {
+  const router = useRouter();
+
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState({ email: "", password: "" });
   const [loginSuccess, setLoginSuccess] = useState(false);
   const [userNotFound, setUserNotFound] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [loginUserData, setLoginUserData] = useState({ email: "", password: "" });
-  const router = useRouter();
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -44,7 +45,7 @@ export default function Login({ setUserAuthentication }) {
       const response = await login(loginUserData.email, loginUserData.password);
       console.log(response)
       if (response?.isLoginSuccess) {
-        const expiresInMinutes = 1;
+        const expiresInMinutes = 60;
         Cookies.set("sessionId", response.data.token, { expires: expiresInMinutes / 1440 });
         Cookies.set("LoginUser", JSON.stringify(response.data?.user), { expires: expiresInMinutes / 1440 });
         router.push("/dashboard");
@@ -66,8 +67,8 @@ export default function Login({ setUserAuthentication }) {
 
   const popupClose = () => {
     setUserNotFound(false);
-    window.location.reload()
-}
+    router.refresh();
+  }
 
   return (
     <section className="login-form-wrapper">
