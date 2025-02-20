@@ -13,7 +13,7 @@ export default function RootLayout({ children }) {
   const noHeaderFooterPages = ['/', '/signup', '/login'];
   const hideHeaderFooter = noHeaderFooterPages.includes(pathname);
 
-  const authPages = ["/login", "/signup", "/forget"];
+  const authPages = ["/","/login", "/signup", "/forget"];
   const isAuthPage = authPages.includes(pathname);
 
   useEffect(() => {
