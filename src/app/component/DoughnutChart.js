@@ -45,7 +45,7 @@ export default function DoughnutChart() {
       <div className="doughnoutChart-wrapper mt-4 col-12 col-lg-6">
         <div className="">
           <div className="doughnout-card d-flex align-items-center justify-content-center">
-            <Doughnut data={doughnutChartData} options={chartOptions}/>;
+            <Doughnut data={doughnutChartData} options={chartOptions} />;
           </div>
         </div>
       </div>

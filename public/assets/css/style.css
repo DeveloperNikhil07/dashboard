@@ -146,13 +146,14 @@ i {
 
 /* Doughnout chart */
 
-.doughnoutChart-wrapper .doughnout-card{
+.doughnoutChart-wrapper .doughnout-card {
     border: 1px solid var(--border-color);
     padding: 25px;
     border-radius: 8px;
-    background-color: var(--dashboard-card-light-bg);   
+    background-color: var(--dashboard-card-light-bg);
     height: 100%;
 }
+
 .doughnout-card canvas {
     height: 480px !important;
     width: 480px !important;

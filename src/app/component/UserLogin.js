@@ -4,9 +4,12 @@ import { login } from "../../../pages/api/route";
 import SuccessGreetPopup from "./SuccessGreetPopup";
 import { useRouter } from "next/navigation";
 import Cookies from "js-cookie";
+import { ToastContainer, toast } from 'react-toastify';
+
 
 export default function Login({ setUserAuthentication }) {
   const router = useRouter();
+  const LoginNotify = () => toast("Wow so easy!");
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState({ email: "", password: "" });
@@ -67,7 +70,7 @@ export default function Login({ setUserAuthentication }) {
 
   const popupClose = () => {
     setUserNotFound(false);
-    router.refresh();
+    window.location.reload();
   }
 
   return (
